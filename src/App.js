@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+import Home from "./pages/Home";
+import GlobalStyle from "./components/GlobalStyle";
 
 const ffmpeg = createFFmpeg({ log: true });
+
 function App() {
 	const [ready, setReady] = useState(false);
 	const [video, setVideo] = useState();
@@ -38,7 +41,9 @@ function App() {
 
 	return ready ? (
 		<div className="App">
-			{video && (
+			<GlobalStyle />
+			<Home />
+			{/* {video && (
 				<video
 					controls
 					width="250"
@@ -49,7 +54,7 @@ function App() {
 
 			<h3>Result</h3>
 			<button onClick={convertToGif}>Convert</button>
-			{gif && <img src={gif} alt="gif" />}
+			{gif && <img src={gif} alt="gif" />} */}
 		</div>
 	) : (
 		<p>Loading...</p>
